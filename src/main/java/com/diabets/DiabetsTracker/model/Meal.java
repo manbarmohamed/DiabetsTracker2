@@ -1,7 +1,13 @@
 package com.diabets.DiabetsTracker.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name="Meal")
 public class Meal {
