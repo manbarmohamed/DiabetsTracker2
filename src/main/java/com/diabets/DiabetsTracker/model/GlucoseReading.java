@@ -34,7 +34,6 @@ public class GlucoseReading {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-    // Getters and setters
     public Integer getGlucoseReadingId() {
         return glucoseReadingId;
     }
