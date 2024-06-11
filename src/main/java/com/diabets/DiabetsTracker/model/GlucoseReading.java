@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "GlucoseReading")
 public class GlucoseReading {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer glucoseReadingId;
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:MM")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime dateAndTime;
 
     @Column(nullable = false)
@@ -33,6 +34,7 @@ public class GlucoseReading {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
+    // Getters and setters
     public Integer getGlucoseReadingId() {
         return glucoseReadingId;
     }
@@ -73,6 +75,14 @@ public class GlucoseReading {
         this.user = user;
     }
 
+    public Advice getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(Advice advice) {
+        this.advice = advice;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -80,7 +90,4 @@ public class GlucoseReading {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-
-
 }
