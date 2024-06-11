@@ -1,36 +1,29 @@
 package com.diabets.DiabetsTracker.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "meal")
+@Table(name="Meal")
 public class Meal {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMeal;
+    private Long mealId;
 
+    @Column(columnDefinition = "TEXT")
+    private String mealDescription;
 
-    private String nameMeal;
-
-
-    private String descriptionMeal;
-
-
-    private int caloriesMeal;
+    @Column(nullable = false)
+    private Integer carbohydrates;
 
     @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
+
+
 }

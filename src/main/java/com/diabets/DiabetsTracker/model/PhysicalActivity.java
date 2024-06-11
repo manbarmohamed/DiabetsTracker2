@@ -1,42 +1,29 @@
 package com.diabets.DiabetsTracker.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "physical_activity")
+@Table(name = "PhysicalActivity")
 public class PhysicalActivity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pid;
+    private Long activityId;
 
+    @Column(columnDefinition = "TEXT")
+    private String activityDescription;
 
-    private String activityType;
+    @Column(nullable = false)
+    private Integer duration;
 
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
-    private int durationMinutes;
-
-
-    private int caloriesBurned;
-
-
-    private LocalDateTime activityDate;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private List<PhysicalActivity> physicalActivity = new ArrayList<>();
-    // Constructors
 
 }
-
