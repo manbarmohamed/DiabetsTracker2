@@ -21,8 +21,6 @@ public class PhysicalActivityController {
     @Autowired
     PhysicalAtivityService physicalAtivityService;
 
-    @Autowired
-    UserService userService;
 
     @RequestMapping("/homeUser/{userId}")
     public String homeUser(@PathVariable Long userId, Model model) {
@@ -32,10 +30,9 @@ public class PhysicalActivityController {
         return "homeUser";
     }
 
-    @GetMapping("/new2/{userId}")
-    public String addNewMeal(@PathVariable Long userId, Model model) {
-        User user = userService.getUser(userId);
-        model.addAttribute("user", user);
+    @GetMapping("/new2")
+    public String addNewMeal( Model model) {
+
         model.addAttribute("physicalActivities",new PhysicalActivity());
         return "newActivity";
     }
@@ -43,6 +40,6 @@ public class PhysicalActivityController {
     @PostMapping("/addActivity")
     public String addNewActivity(@ModelAttribute PhysicalActivity physicalActivity) {
         physicalAtivityService.addPhysicalActivity(physicalActivity);
-        return "redirect:/homeUser" + physicalActivity.getUser().getuserId();
+        return "redirect:/homeUser";
     }
 }

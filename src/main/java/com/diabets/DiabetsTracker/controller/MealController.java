@@ -19,8 +19,7 @@ public class MealController {
     @Autowired
     MealService mealService;
 
-    @Autowired
-    UserService userService;
+
 
     @RequestMapping("/homeUser/{userId}")
     public String homeUser(@PathVariable Long userId, Model model) {
@@ -30,10 +29,10 @@ public class MealController {
         return "homeUser";
     }
 
-    @GetMapping("/new1/{userId}")
-    public String addNewMeal(@PathVariable Long userId, Model model) {
-        User user = userService.getUser(userId);
-        model.addAttribute("user", user);
+    @GetMapping("/new1")
+    public String addNewMeal( Model model) {
+
+
         model.addAttribute("meals", new Meal());
         return "newMeal";
     }
@@ -41,6 +40,6 @@ public class MealController {
     @PostMapping("/addMeal")
     public String addNewMeal(@ModelAttribute Meal meal) {
         mealService.addMeal(meal);
-        return "redirect:/homeUser" + meal.getUser().getuserId();
+        return "redirect:/homeUser";
     }
 }
