@@ -6,11 +6,10 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "User")
 public class User {
@@ -28,16 +27,12 @@ public class User {
     @Column(nullable = false)
     private String userPicture;
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Meal> meals = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-    private List<PhysicalActivity> physicalActivitys = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<PhysicalActivity> physicalActivities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-    private List<GlucoseReading> glucosesReading = new ArrayList<>();
-
-
-
-
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<GlucoseReading> glucoseReadings = new ArrayList<>();
 }
