@@ -1,22 +1,19 @@
 package com.diabets.DiabetsTracker.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "GlucoseReading")
 public class GlucoseReading {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer glucoseReadingId;
@@ -36,60 +33,9 @@ public class GlucoseReading {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "adviceId", nullable = false)
+    @JoinColumn(name = "adviceId")
     private Advice advice;
 
     @Column(columnDefinition = "TEXT")
     private String comment;
-
-    public Integer getGlucoseReadingId() {
-        return glucoseReadingId;
-    }
-
-    public void setGlucoseReadingId(Integer glucoseReadingId) {
-        this.glucoseReadingId = glucoseReadingId;
-    }
-
-    public LocalDateTime getDateAndTime() {
-        return dateAndTime;
-    }
-
-    public void setDateAndTime(LocalDateTime dateAndTime) {
-        this.dateAndTime = dateAndTime;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String getMeasurementType() {
-        return measurementType;
-    }
-
-    public void setMeasurementType(String measurementType) {
-        this.measurementType = measurementType;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-
-
 }

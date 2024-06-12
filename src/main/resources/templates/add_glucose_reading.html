@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Glucose Reading</title>
+</head>
+<body>
+<h1>Add Glucose Reading</h1>
+<form th:action="@{/glucose-readings/save}" th:object="${glucoseReading}" method="post">
+    <div>
+        <label for="dateAndTime">Date and Time:</label>
+        <input type="datetime-local" id="dateAndTime" th:field="*{dateAndTime}" />
+    </div>
+    <div>
+        <label for="level">Level:</label>
+        <input type="number" id="level" th:field="*{level}" />
+    </div>
+    <div>
+        <label for="measurementType">Measurement Type:</label>
+        <input type="text" id="measurementType" th:field="*{measurementType}" />
+    </div>
+    <div>
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" />
+    </div>
+    <div>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" th:field="*{comment}"></textarea>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>
