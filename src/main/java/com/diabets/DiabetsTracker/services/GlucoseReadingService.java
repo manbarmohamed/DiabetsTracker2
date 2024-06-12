@@ -19,12 +19,7 @@ public class GlucoseReadingService {
     }
 
     public GlucoseReading saveGlucoseReading(GlucoseReading glucoseReading) {
-        glucoseReadingRepository.save(glucoseReading);
-        return glucoseReading;
-    }
-
-    public void deleteGlucoseReadingById(Integer id) {
-        glucoseReadingRepository.deleteById(id);
+        return glucoseReadingRepository.save(glucoseReading);
     }
 
     public Optional<GlucoseReading> getGlucoseReadingById(Integer id) {
@@ -33,5 +28,9 @@ public class GlucoseReadingService {
 
     public List<GlucoseReading> getAllGlucoseReadings() {
         return glucoseReadingRepository.findAll();
+    }
+
+    public void deleteGlucoseReadingById(Integer id) {
+        glucoseReadingRepository.deleteById(id);
     }
 }
