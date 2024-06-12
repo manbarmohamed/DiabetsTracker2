@@ -38,7 +38,14 @@ public class GlucoseReading {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-
-
-
+    @Override
+    public String toString() {
+        return "GlucoseReading{" +
+                "glucoseReadingId=" + glucoseReadingId +
+                ", dateAndTime=" + dateAndTime +
+                ", level=" + level +
+                ", measurementType='" + measurementType + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }
