@@ -18,15 +18,17 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping(value = "glucose")
+@RequestMapping("/glucose-readings")
 public class GlucoseReadingController {
+
+
     @Autowired
     GlucoseReadingService glucoseReadingService;
 
 
     @GetMapping("/chart")
     public String chart(Model model) {
-        model.addAttribute("readings", glucoseReadingService.getGlucose());
+        model.addAttribute("readings", glucoseReadingService.getAllGlucoseReadings());
         return "chart";
     }
 
@@ -54,20 +56,27 @@ public class GlucoseReadingController {
                 readings = glucoseReadingService.getByYearAndWeek(year, week);
                 break;
             default:
-                readings = glucoseReadingService.getAllGroupedByWeek();
-        }
+                readings = glucoseReadingService.getAllGroupedByWeek();}
 
-        List<String> labels = new ArrayList<>();
-        List<Integer> data = new ArrayList<>();
+                List<String> labels = new ArrayList<>();
+                List<Integer> data = new ArrayList<>();
 
-        for (GlucoseReading reading : readings) {
-            labels.add(reading.getDateAndTime().toString());
-            data.add(reading.getLevel());
-        }
+                for (GlucoseReading reading : readings) {
+                    labels.add(reading.getDateAndTime().toString());
+                    data.add(reading.getLevel());
+                }
 //       labels = Arrays.asList("January", "February", "March", "April", "May");
 //       data = Arrays.asList(10, 20, 30, 40, 50);
-        model.addAttribute("labels", labels);
-        model.addAttribute("data", data);
-        return "index";
+                model.addAttribute("labels", labels);
+                model.addAttribute("data", data);
+                return "index";
+        }
+
+    @GetMapping("/all")
+    public String getAllGlucoseReadings(Model model) {
+        List<GlucoseReading> glucoseReadings = glucoseReadingService.getAllGlucoseReadings();
+        model.addAttribute("glucoseReadings", glucoseReadings);
+        return "glucose_readings";
+
     }
 }

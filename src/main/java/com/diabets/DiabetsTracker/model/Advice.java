@@ -1,19 +1,15 @@
 package com.diabets.DiabetsTracker.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "Advice")
 public class Advice {
@@ -31,9 +27,6 @@ public class Advice {
     @Column(nullable = false)
     private Integer levelMax;
 
-    @OneToMany(mappedBy = "advice",fetch = FetchType.EAGER)
-    private List<GlucoseReading> glucosesReading = new ArrayList<>();
-
-
-
+    @OneToMany(mappedBy = "advice", fetch = FetchType.EAGER)
+    private List<GlucoseReading> glucoseReadings = new ArrayList<>();
 }

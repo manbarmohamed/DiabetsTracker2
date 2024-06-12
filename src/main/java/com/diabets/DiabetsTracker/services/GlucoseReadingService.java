@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GlucoseReadingService {
@@ -14,8 +15,12 @@ public class GlucoseReadingService {
     GlucoseReadingRepository glucoseReadingRepository;
 
 
+    public Optional<GlucoseReading> getGlucoseReadingById(Integer id) {
+        return glucoseReadingRepository.findById(id);
+    }
 
-    public List<GlucoseReading> getGlucose(){
+
+    public List<GlucoseReading> getAllGlucoseReadings() {
         return glucoseReadingRepository.findAll();
     }
     public List<GlucoseReading> getAllGroupedByWeek() {
@@ -37,8 +42,7 @@ public class GlucoseReadingService {
     public List<GlucoseReading> getByYearAndMonth(int year, int month) {
         return glucoseReadingRepository.findByYearAndMonth(year, month);
     }
-
-    public GlucoseReading getLatestReading() {
-        return glucoseReadingRepository.findFirstByOrderByDateAndTimeDesc();
+    public void deleteGlucoseReadingById(Integer id) {
+        glucoseReadingRepository.deleteById(id);
     }
 }
