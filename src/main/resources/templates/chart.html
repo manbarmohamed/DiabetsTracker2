@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Glucose Readings</title>
+    <title>Chart Example</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<div>
-    <h2>Glucose Readings</h2>
-    <form th:action="@{/glucose/chartDisplay}" method="get">
-        <button type="submit" name="view" value="week">Group by Week</button>
-        <button type="submit" name="view" value="month">Group by Month</button>
-        <button type="submit" name="view" value="year">Group by Year</button>
-        <br><br>
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year">
-        <label for="month">Month:</label>
-        <input type="number" id="month" name="month">
-        <label for="week">Week:</label>
-        <input type="number" id="week" name="week">
-        <button type="submit" name="view" value="specificMonth">Filter by Month</button>
-        <button type="submit" name="view" value="specificWeek">Filter by Week</button>
-    </form>
-    <canvas id="glucoseChart"></canvas>
-</div>
+<h1>Chart Example</h1>
 
+<canvas id="myChart" width="400" height="200"></canvas>
 
 
 <script th:inline="javascript">
@@ -31,7 +15,7 @@
     var labels = /*[[${labels}]]*/ [];
     var data = /*[[${data}]]*/ [];
 
-    var ctx = document.getElementById('glucoseChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {

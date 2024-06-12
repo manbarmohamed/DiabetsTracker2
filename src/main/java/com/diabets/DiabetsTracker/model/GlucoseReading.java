@@ -3,8 +3,8 @@ package com.diabets.DiabetsTracker.model;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDateTime;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public class GlucoseReading {
     private Integer glucoseReadingId;
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:MM")
     private LocalDateTime dateAndTime;
 
     @Column(nullable = false)
@@ -38,4 +38,16 @@ public class GlucoseReading {
 
     @Column(columnDefinition = "TEXT")
     private String comment;
+
+
+    @Override
+    public String toString() {
+        return "GlucoseReading{" +
+                "glucoseReadingId=" + glucoseReadingId +
+                ", dateAndTime=" + dateAndTime +
+                ", level=" + level +
+                ", measurementType='" + measurementType + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }
