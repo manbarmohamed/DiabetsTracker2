@@ -12,7 +12,6 @@
         <th>Date et Heure</th>
         <th>Niveau de Glycémie</th>
         <th>Type de Mesure</th>
-        <th>Conseil</th>
         <th>Commentaire</th>
     </tr>
     </thead>
@@ -21,7 +20,6 @@
         <td th:text="${reading.dateAndTime}"></td>
         <td th:text="${reading.level}"></td>
         <td th:text="${reading.measurementType}"></td>
-        <td th:number="${reading.advice.adviceId}"></td>
         <td th:text="${reading.comment}"></td>
     </tr>
     </tbody>

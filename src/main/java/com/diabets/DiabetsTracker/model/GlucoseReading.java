@@ -6,10 +6,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "GlucoseReading")
 public class GlucoseReading {
@@ -32,11 +33,12 @@ public class GlucoseReading {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "adviceId", nullable = false)
+    @JoinColumn(name = "adviceId")
     private Advice advice;
 
     @Column(columnDefinition = "TEXT")
     private String comment;
+
 
     @Override
     public String toString() {
