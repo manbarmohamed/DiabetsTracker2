@@ -32,7 +32,7 @@ public class GlucoseReading {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "adviceId", nullable = false)
+    @JoinColumn(name = "adviceId")
     private Advice advice;
 
     @Column(columnDefinition = "TEXT")
