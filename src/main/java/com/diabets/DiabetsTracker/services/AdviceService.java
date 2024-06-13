@@ -14,7 +14,12 @@ public class AdviceService {
     private AdviceRepository adviceRepository;
 
     @Transactional
-    public Advice getAdviceByGlucoseReading(Integer level) {
-        return adviceRepository.findByGlucoseReading(level);
+    public Advice getAdviceByGlucoseReading(Integer glucoseReadingID) {
+        return adviceRepository.findByGlucoseReading(glucoseReadingID);
+    }
+
+    @Transactional
+    public Advice getAdviceByLevel(Integer level) {
+        return adviceRepository.findByLevel(level);
     }
 }
