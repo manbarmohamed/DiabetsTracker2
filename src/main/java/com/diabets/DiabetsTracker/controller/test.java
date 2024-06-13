@@ -15,8 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("api/test/")
 public class test {
-    @Autowired
-    private AdviceService adviceService;
+
 
     @GetMapping("/")
     public String show(Model model){
@@ -24,11 +23,6 @@ public class test {
         return "index";
     }
 
-    @GetMapping("/advice")
-    public String showAdvice(ModelMap model){
-        model.put("advice",adviceService.getAdviceByGlucoseReading(1));
-        return "advice";
-    }
 
     @GetMapping("/chart")
     public String getChartData(Model model) {
