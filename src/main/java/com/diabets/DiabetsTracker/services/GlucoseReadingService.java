@@ -19,6 +19,9 @@ public class GlucoseReadingService {
         return glucoseReadingRepository.findById(id);
     }
 
+    public GlucoseReading saveGlucoseReading(GlucoseReading glucoseReading) {
+        return glucoseReadingRepository.save(glucoseReading);
+    }
 
     public List<GlucoseReading> getAllGlucoseReadings() {
         return glucoseReadingRepository.findAll();
