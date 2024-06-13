@@ -8,15 +8,16 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-<div>
-    <div class="container w-100">
-        <div class="card bg-dark text-white">
-            <img src="https://i.ibb.co/BwS5qN9/advice-removebg-preview.png" class="card-img" alt="picture Advice" height="583">
-            <div class="card-img-overlay ml-2" style="margin-top: 130px">
-                <p th:text="${advice.getAdviceText()}" class="card-text" style="font-weight: bold"></p>
+    <div class="w-100" >
+        <div class="card w-100 text-white" style="background-color: cornflowerblue">
+            <div class="card-title">
+                <p class="card-text text-center" style="color:cornsilk;font-size: 50px;font-weight: bold;margin-top: 30px"> Advice </p>
+            </div>
+            <img src="https://i.ibb.co/BwS5qN9/advice-removebg-preview.png" class="card-img" alt="picture Advice" height="467" style="padding-left: 120px">
+            <div class="card-img-overlay ml-3" style="margin-top: 230px">
+                <p th:text="${advice.getAdviceText()}" class="card-text" style="font-family: Elephant;font-size: 20px;font-weight: bold"></p>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
