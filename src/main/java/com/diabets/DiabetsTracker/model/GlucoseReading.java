@@ -6,10 +6,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "GlucoseReading")
 public class GlucoseReading {
@@ -39,6 +40,14 @@ public class GlucoseReading {
     private String comment;
 
 
-
-
+    @Override
+    public String toString() {
+        return "GlucoseReading{" +
+                "glucoseReadingId=" + glucoseReadingId +
+                ", dateAndTime=" + dateAndTime +
+                ", level=" + level +
+                ", measurementType='" + measurementType + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }
