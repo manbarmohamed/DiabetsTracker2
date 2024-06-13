@@ -13,11 +13,12 @@
             <div class="card-title">
                 <p class="card-text text-center" style="color:cornsilk;font-size: 50px;font-weight: bold;margin-top: 30px"> Advice </p>
             </div>
-            <img src="https://i.ibb.co/BwS5qN9/advice-removebg-preview.png" class="card-img" alt="picture Advice" height="467" style="padding-left: 120px">
+            <img src="https://i.ibb.co/BwS5qN9/advice-removebg-preview.png" class="card-img" alt="picture Advice" height="429" style="padding-left: 120px">
             <div class="card-img-overlay ml-3" style="margin-top: 230px">
                 <p th:text="${advice.getAdviceText()}" class="card-text" style="font-family: Elephant;font-size: 20px;font-weight: bold"></p>
             </div>
         </div>
+        <a th:href="@{'./all'}" class="btn btn-default d-flex flex-column align-items-center" style="background-color: black;color: lavender">Back to Glucose Readings</a>
     </div>
 </body>
 </html>
