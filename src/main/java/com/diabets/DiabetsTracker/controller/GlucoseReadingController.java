@@ -1,14 +1,17 @@
 package com.diabets.DiabetsTracker.controller;
 
 
+import com.diabets.DiabetsTracker.model.Advice;
 import com.diabets.DiabetsTracker.model.GlucoseReading;
 import com.diabets.DiabetsTracker.model.User;
+import com.diabets.DiabetsTracker.services.AdviceService;
 import com.diabets.DiabetsTracker.services.GlucoseReadingService;
 import com.diabets.DiabetsTracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -31,13 +34,13 @@ public class GlucoseReadingController {
 
 
     @Autowired
-   UserService userService;
-
-  
-
+    private UserService userService;
 
     @Autowired
-    GlucoseReadingService glucoseReadingService;
+    private AdviceService adviceService;
+
+    @Autowired
+    private GlucoseReadingService glucoseReadingService;
 
 
     @GetMapping("/chart")
@@ -116,17 +119,27 @@ public class GlucoseReadingController {
             return "redirect:/glucose-readings/add?error=userNotFound";
         }
 
+        Advice advice = adviceService.getAdviceByLevel(level);
+
+        System.out.println(advice);
         GlucoseReading glucoseReading = GlucoseReading.builder()
                 .dateAndTime(localDateTime)
                 .level(level)
                 .measurementType(measurementType)
                 .user(user)
                 .comment(comment)
+                .advice(advice)
                 .build();
         System.out.println(glucoseReading);
         glucoseReadingService.saveGlucoseReading(glucoseReading);
         System.out.println("oooooooooooooooooooooooooooooooooooooooooooooooo");
         return "redirect:/glucose-readings/all";
+    }
+
+    @GetMapping("/advice")
+    public String showAdvice(@RequestParam Integer glucoseReadingsId, ModelMap model){
+        model.put("advice",adviceService.getAdviceByGlucoseReading(glucoseReadingsId));
+        return "advice";
     }
 
 }
