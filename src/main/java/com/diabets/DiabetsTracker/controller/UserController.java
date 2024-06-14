@@ -1,8 +1,8 @@
 package com.diabets.DiabetsTracker.controller;
 
 
-import com.diabets.DiabetsTracker.Service.UserService;
 import com.diabets.DiabetsTracker.model.User;
+import com.diabets.DiabetsTracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

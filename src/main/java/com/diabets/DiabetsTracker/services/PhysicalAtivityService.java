@@ -1,5 +1,5 @@
-package com.diabets.DiabetsTracker.Service;
-import com.diabets.DiabetsTracker.Repository.PhysicalActivityRepository;
+package com.diabets.DiabetsTracker.services;
+import com.diabets.DiabetsTracker.repository.PhysicalActivityRepository;
 import com.diabets.DiabetsTracker.model.PhysicalActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

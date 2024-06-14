@@ -1,5 +1,5 @@
-package com.diabets.DiabetsTracker.Service;
-import com.diabets.DiabetsTracker.Repository.MealRepository;
+package com.diabets.DiabetsTracker.services;
+import com.diabets.DiabetsTracker.repository.MealRepository;
 import com.diabets.DiabetsTracker.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
