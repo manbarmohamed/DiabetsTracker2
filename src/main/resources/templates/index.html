@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Glucose Readings</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div>
+    <h2>Glucose Readings</h2>
+    <form th:action="@{/glucose/chartDisplay}" method="get">
+        <button type="submit" name="view" value="week">Group by Week</button>
+        <button type="submit" name="view" value="month">Group by Month</button>
+        <button type="submit" name="view" value="year">Group by Year</button>
+        <br><br>
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year">
+        <label for="month">Month:</label>
+        <input type="number" id="month" name="month">
+        <label for="week">Week:</label>
+        <input type="number" id="week" name="week">
+        <button type="submit" name="view" value="specificMonth">Filter by Month</button>
+        <button type="submit" name="view" value="specificWeek">Filter by Week</button>
+    </form>
+    <canvas id="glucoseChart"></canvas>
+</div>
+
+
+
+<script th:inline="javascript">
+
+    var labels = /*[[${labels}]]*/ [];
+    var data = /*[[${data}]]*/ [];
+
+    var ctx = document.getElementById('glucoseChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '# of Votes',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

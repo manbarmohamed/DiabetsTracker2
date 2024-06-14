@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Tracker - Glucose Readings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Liste des lectures de glycémie</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Date et Heure</th>
+        <th>Niveau de Glycémie</th>
+        <th>Type de Mesure</th>
+        <th>Commentaire</th>
+        <th>Advice</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reading : ${glucoseReadings}">
+        <td th:text="${reading.dateAndTime}"></td>
+        <td th:text="${reading.level}"></td>
+        <td th:text="${reading.measurementType}"></td>
+        <td th:text="${reading.comment}"></td>
+        <td>
+            <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" th:href="@{'./advice?glucoseReadingsId='+${reading.glucoseReadingId}}" role="button" id="advice_btn" style="background-color: #FFDFB9; color: white">
+                <img style="margin-left: 2px;" src="https://i.ibb.co/0sPGc0G/advice.png" height="25">
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
