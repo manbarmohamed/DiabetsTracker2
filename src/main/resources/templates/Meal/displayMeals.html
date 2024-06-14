@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Meal Tracker</title>
+</head>
+<body>
+<div align="center">
+    <h1>Meal List</h1>
+    <a th:href="@{/api/meal/new/{userId}(userId=${userId})}">Create New Meal</a>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Meal ID</th>
+            <th>Meal Name</th>
+            <th>Description</th>
+            <th>Carbohydrates</th>
+            <th>User ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="meal : ${listMeals}">
+            <td th:text="${meal.mealId}">Meal ID</td>
+            <td th:text="${meal.mealName}">Meal Name</td>
+            <td th:text="${meal.mealDescription}">Description</td>
+            <td th:text="${meal.carbohydrates}">Carbohydrates</td>
+            <td th:text="${meal.user.userId}">User ID</td>
+            <td>
+                <!-- Liens pour éditer et supprimer chaque repas (à décommenter si nécessaire) -->
+                <!-- <a th:href="@{'/edit/' + ${meal.mealId}}">Edit</a> -->
+                <!-- &nbsp;&nbsp;&nbsp; -->
+                <!-- <a th:href="@{'/delete/' + ${meal.mealId}}">Delete</a> -->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

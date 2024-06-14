@@ -20,6 +20,10 @@ public class PhysicalAtivityService {
         return physicalActivityRepo.findAll();
     }
 
+    public List<PhysicalActivity> getPhysicalActivities(Long id) {
+       return physicalActivityRepo.findByUser_UserId(id);
+    }
+
     public void addPhysicalActivity(PhysicalActivity physicalActivity) {
         physicalActivityRepo.save(physicalActivity);
     }

@@ -18,6 +18,10 @@ public class MealService {
         return mealRepo.findAll();
     }
 
+    public List<Meal> getMeals(Long id) {
+        return mealRepo.findByUser_UserId(id);
+    }
+
     public void addMeal(Meal meal) {
         mealRepo.save(meal);
     }

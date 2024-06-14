@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter une nouvelle activité physique</title>
+</head>
+<body>
+<div class="container">
+    <h2>Ajouter une nouvelle activité physique</h2>
+    <form th:action="@{/api/phyisicalActivty/addActivity}" th:object="${physicalActivities}" method="POST">
+        <div class="form-group">
+            <label for="activityDescription">Description de l'activité:</label>
+            <textarea id="activityDescription" th:field="*{activityDescription}" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="duration">Durée (en minutes):</label>
+            <input type="number" id="duration" th:field="*{duration}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="burnedCalories">Calories brûlées:</label>
+            <input type="number" id="burnedCalories" th:field="*{burnedCalories}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="text" name="user" th:value="${user.userId}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    <a th:href="@{/api/phyisicalActivty/homeActivity/{userId}(userId=${user.userId})}" class="btn btn-secondary">Annuler</a>
+</div>
+</body>
+</html>

@@ -3,6 +3,8 @@ package com.diabets.DiabetsTracker.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,9 +23,20 @@ public class PhysicalActivity {
     @Column(nullable = false)
     private Integer duration;
 
+    @Column(name = "burned_calories")
+    private Integer burnedCalories;
+
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-
+    @Override
+    public String toString() {
+        return "PhysicalActivity{" +
+                "activityId=" + activityId +
+                ", activityDescription='" + activityDescription + '\'' +
+                ", duration=" + duration +
+                ", user=" + user +
+                '}';
+    }
 }

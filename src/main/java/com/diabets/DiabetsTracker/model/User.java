@@ -1,8 +1,6 @@
 package com.diabets.DiabetsTracker.model;
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +35,16 @@ public class User {
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<GlucoseReading> glucosesReading = new ArrayList<>();
 
-
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", age=" + age +
+                ", userPicture='" + userPicture + '\'' +
+                ", meals=" + meals +
+                ", physicalActivitys=" + physicalActivitys +
+                ", glucosesReading=" + glucosesReading +
+                '}';
+    }
 }
