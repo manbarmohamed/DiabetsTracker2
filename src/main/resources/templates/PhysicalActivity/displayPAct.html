@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Physical Activity Tracker</title>
+</head>
+<body>
+<div align="center">
+    <h1>Physical Activity List</h1>
+    <a th:href="@{/api/phyisicalActivty/new2/{userId}(userId=${userId})}">Create New Activity</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Activity ID</th>
+            <th>Description</th>
+            <th>Duration (minutes)</th>
+            <th>Calories Burned</th>
+            <th>User ID</th>
+            <!-- <th>Actions</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="activity : ${listActivities}">
+            <td th:text="${activity.activityId}">Activity ID</td>
+            <td th:text="${activity.activityDescription}">Description</td>
+            <td th:text="${activity.duration}">Duration</td>
+            <td th:text="${activity.burnedCalories}">Calories Burned</td>
+            <td th:text="${activity.user.userId}">User ID</td>
+            <!--
+            <td>
+                <a th:href="@{'/edit/' + ${activity.activityId}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${activity.activityId}}">Delete</a>
+            </td>
+            -->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -3,27 +3,40 @@ package com.diabets.DiabetsTracker.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "Meal")
 @Getter
 @Setter
-@Entity
-@Table(name="Meal")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Meal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "meal_id")
     private Long mealId;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "meal_name")
+    private String mealName;
+
+    @Column(name = "meal_description", columnDefinition = "TEXT")
     private String mealDescription;
 
-    @Column(nullable = false)
+    @Column(name = "carbohydrates", nullable = false)
     private Integer carbohydrates;
 
-    @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "mealId=" + mealId +
+                ", mealName='" + mealName + '\'' +
+                ", mealDescription='" + mealDescription + '\'' +
+                ", carbohydrates=" + carbohydrates +
+                ", user=" + user +
+                '}';
+    }
 }

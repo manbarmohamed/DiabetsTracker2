@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un repas</title>
+    <link rel="stylesheet" type="text/css" href="path/to/your/css/file.css">
+</head>
+<body>
+<div class="container">
+    <h2>Ajouter un nouveau repas</h2>
+    <form th:action="@{/api/meal/addMeal}" th:object="${meal}" method="POST">
+        <div class="form-group">
+            <label for="mealName">Nom du repas:</label>
+            <input type="text" id="mealName" th:field="*{mealName}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="mealDescription">Description du repas:</label>
+            <textarea id="mealDescription" th:field="*{mealDescription}" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="carbohydrates">Glucides (en grammes):</label>
+            <input type="number" id="carbohydrates" th:field="*{carbohydrates}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="text" name="user" th:value="${user.userId}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    <a th:href="@{/homeMeal/}" class="btn btn-secondary">Annuler</a>
+</div>
+</body>
+</html>

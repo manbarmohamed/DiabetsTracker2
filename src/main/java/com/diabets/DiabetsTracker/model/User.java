@@ -33,6 +33,8 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<PhysicalActivity> physicalActivities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<GlucoseReading> glucoseReadings = new ArrayList<>();
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<GlucoseReading> glucosesReading = new ArrayList<>();
+
+   
 }
