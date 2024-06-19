@@ -5,6 +5,8 @@ import com.diabets.DiabetsTracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -20,5 +22,13 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepository.findUserByUserName(username);
+    }
+
+    public User getUser(Long userid) {
+        return userRepository.findById(userid).get();
+    }
+
+    public List<User> listAll() {
+        return (List<User>) userRepository.findAll();
     }
 }

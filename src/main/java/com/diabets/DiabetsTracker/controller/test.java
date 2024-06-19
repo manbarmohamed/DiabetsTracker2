@@ -20,7 +20,7 @@ public class test {
     @GetMapping("/")
     public String show(Model model){
         model.addAttribute("test", "Woooowooooow");
-        return "index";
+        return "home";
     }
 
 

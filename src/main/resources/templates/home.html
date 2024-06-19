@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/c1df782baf.js"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <nav class="section__container nav__container">
+        <div class="nav__logo">Diabets<span>Care</span></div>
+        <ul class="nav__links">
+            <li class="link"><a href="#">Home</a></li>
+            <li class="link"><a href="#">About Us</a></li>
+            <li class="link"><a href="#">Services</a></li>
+            <li class="link"><a href="#">Pages</a></li>
+            <li class="link"><a href="#">Blog</a></li>
+        </ul>
+        <button class="btn">Contact Us</button>
+    </nav>
+    <div class="section__container header__container">
+        <div class="header__content">
+            <h1>Providing an Exceptional Patient Experience</h1>
+            <p>
+                Welcome, where exceptional patient experiences are our priority.
+                With compassionate care, state-of-the-art facilities, and a
+                patient-centered approach, we're dedicated to your well-being. Trust
+                us with your health and experience the difference.
+            </p>
+            <button class="btn">See Services</button>
+        </div>
+        <div class="header__form">
+            <form>
+                <h4>Add New Glycemie</h4>
+                <input type="datetime" placeholder="Date And Time" />
+                <input type="number" placeholder="Level" />
+                <input type="text" placeholder="Measure Type" />
+                <input type="number" value="1" readonly />
+                <input type="text" name="" placeholder="Comment">
+                <button class="btn form__btn">Add</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="technology">
+    <div class="main-technology">
+
+        <div class="inner-technology">
+            <span></span>
+            <i class="fi fi-tr-hands-heart"></i>
+            <h2>Free Advice</h2>
+            <p>We provide free advice to our patients on how to live a healthy and fulfilling life..</p>
+        </div>
+
+        <div class="inner-technology">
+            <span></span>
+            <i class="fi fi-rr-doctor"></i>
+            <h2>Meals & Physical Activities</h2>
+            <p>Our hospital provides free healthy meals and physical activities to our diabetic patients for a good and healthy life..</p>
+        </div>
+
+        <div class="inner-technology">
+            <span></span>
+            <i class="fi fi-tr-user-md"></i>
+            <h2>Daily Diabets Tracker</h2>
+            <p>Our hospital provides free Diabetes Tracker Daily to our diabetic patients for a good and healthy life..</p>
+        </div>
+    </div>
+</div>
+
+<section class="section__container about__container">
+    <div class="about__content">
+        <h2 class="section__header">About Us</h2>
+        <p>
+            Welcome to our healthcare website, your one-stop destination for
+            reliable and comprehensive health care information. We are committed
+            to promoting wellness and providing valuable resources to empower you
+            on your health journey.
+        </p>
+        <p>
+            Explore our extensive collection of expertly written articles and
+            guides covering a wide range of health topics. From understanding
+            common medical conditions to tips for maintaining a healthy lifestyle,
+            our content is designed to educate, inspire, and support you in making
+            informed choices for your health.
+        </p>
+        <p>
+            Discover practical health tips and lifestyle advice to optimize your
+            physical and mental well-being. We believe that small changes can lead
+            to significant improvements in your quality of life, and we're here to
+            guide you on your path to a healthier and happier you.
+        </p>
+    </div>
+    <div class="about__image">
+        <img th:src="@{/assets/about.jpg}" alt="about" />
+    </div>
+</section>
+
+<section class="section__container why__container">
+    <div class="why__image">
+        <img th:src="@{/assets/choose-us.jpg}" alt="why choose us" />
+    </div>
+    <div class="why__content">
+        <h2 class="section__header">Why Choose Us</h2>
+        <p>
+            Our platform provides a free daily Diabetes Tracker to help you monitor your blood sugar levels and manage your diabetes effectively..
+        </p>
+        <div class="why__grid">
+            <span><i class="fa-solid fa-comment-medical"></i></span>
+            <div>
+                <h4>Expert Advice</h4>
+                <p>
+                    Access free, expert advice from healthcare professionals, including dietary tips and exercise routines, all available for download to keep you informed and supported.
+                </p>
+            </div>
+            <span><i class="fa-solid fa-weight-scale"></i></span>
+            <div>
+                <h4>Nutritious Meal Plans</h4>
+                <p>
+                    Enjoy free, healthy meal plans tailored for individuals with diabetes, offering delicious and balanced options to maintain stable blood sugar levels.
+                </p>
+            </div>
+            <span><i class="fa-solid fa-person-running"></i></span>
+            <div>
+                <h4>Encouraging Physical Activity</h4>
+                <p>
+                    Stay active with our free physical activity plans designed for all fitness levels, helping you manage your weight and enhance your overall health.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

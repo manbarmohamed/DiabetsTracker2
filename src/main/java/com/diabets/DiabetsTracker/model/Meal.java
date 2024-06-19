@@ -29,14 +29,5 @@ public class Meal {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Override
-    public String toString() {
-        return "Meal{" +
-                "mealId=" + mealId +
-                ", mealName='" + mealName + '\'' +
-                ", mealDescription='" + mealDescription + '\'' +
-                ", carbohydrates=" + carbohydrates +
-                ", user=" + user +
-                '}';
-    }
+
 }

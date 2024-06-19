@@ -1,6 +1,6 @@
 package com.diabets.DiabetsTracker.controller;
-import com.diabets.DiabetsTracker.Service.PhysicalAtivityService;
-import com.diabets.DiabetsTracker.Service.UserService;
+import com.diabets.DiabetsTracker.services.PhysicalAtivityService;
+import com.diabets.DiabetsTracker.services.UserService;
 import com.diabets.DiabetsTracker.model.PhysicalActivity;
 import com.diabets.DiabetsTracker.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
