@@ -9,26 +9,27 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    UserRepository userRepository;
 
     public User findById(Integer id) {
         return userRepository.findById(Long.valueOf(id)).orElse(null);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findUserByUserName(username);
-    }
+
+
+
 
     public User getUser(Long userid) {
         return userRepository.findById(userid).get();
     }
 
     public List<User> listAll() {
-        return (List<User>) userRepository.findAll();
+        return  userRepository.findAll();
     }
+
+
+
+
 }

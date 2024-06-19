@@ -1,4 +1,4 @@
-package com.diabets.DiabetsTracker.Repository;
+package com.diabets.DiabetsTracker.repository;
 
 
 import com.diabets.DiabetsTracker.model.Meal;
